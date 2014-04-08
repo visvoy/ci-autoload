@@ -45,7 +45,7 @@ class MY_Controller extends CI_Controller {
         $suffix = strrchr($key, '_');
         
         if ('_model' == $suffix or '_mdl' == $suffix) {
-            if (strpos(substr($key, -strlen($suffix)), '_')) {
+            if (strpos(substr($key, 0, -strlen($suffix)), '_')) {
                 list($dir, $class) = explode('_', $key, 2);
                 
                 if (file_exists(APPPATH . 'models/' . $dir . '/' . $class . EXT)) {
